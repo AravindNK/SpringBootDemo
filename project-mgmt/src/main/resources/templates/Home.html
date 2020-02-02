@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layouts::header"></head>
+
+<body>
+<nav th:replace="layouts :: navbar"></nav>
+	<table border="3">
+		<thead>
+			<tr>
+				<th>Project Name</th>
+				<th>Project Description</th>
+			</tr>
+		</thead>
+
+		<tbody th:each="aproject:${projectList}">
+			<tr>
+				<td th:text="${aproject.projectName}"></td>
+				<td th:text="${aproject.projectDesc}"></td>
+			</tr>
+		</tbody>
+	</table>
+	<br>
+	<br>
+	<table border="3">
+		<thead>
+			<tr>
+				<th>Employee Name</th>
+				<th>Employee Mail-Id</th>
+			</tr>
+		</thead>
+
+		<tbody th:each="aemployee:${employeeList}">
+			<tr>
+				<td th:text="${aemployee.firstName} +' '+ ${aemployee.lastName}"></td>
+				<td th:text="${aemployee.email}"></td>
+			</tr>
+		</tbody>
+	</table>
+	<br>
+	<br>
+	 Enter another project
+	<a href="http://localhost:8080/projects/new">New Project</a>
+	<br> Enter another employee
+	<a href="http://localhost:8080/employees/new">New Employee</a>
+</body>
+</html>
